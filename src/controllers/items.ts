@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import todos from "../collections/todos.ts";
-import type { Task, Item } from "../types/types.ts";
+import type { Task, Item } from "../interfaces/interfaces";
 import generateItem from "../helpers/generateItem.ts";
 
 const todoList = todos;

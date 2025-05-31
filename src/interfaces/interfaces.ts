@@ -1,9 +1,9 @@
-export type Task = {
+export interface Task {
     name: string,
     task: string,
     finished: boolean,
 }
 
-export type Item = Task & {
+export interface Item extends Task {
     id: number;
 };

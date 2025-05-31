@@ -1,4 +1,4 @@
-import type { Task, Item } from "../types/types";
+import type { Task, Item } from "../interfaces/interfaces";
 
 export default function generateItem(task: Task, todos: Item[]): Item {
     return {
