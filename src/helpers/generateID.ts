@@ -1,14 +1,6 @@
-export type Task = {
-    name: string,
-    task: string,
-    finished: boolean,
-}
+import type { Task, Item } from "../types/types.ts";
 
-export type Item = Task & {
-    id: number;
-};
-
-export function generateItem(task: Task): Item {
+export default function generateItem(task: Task): Item {
     return {
         ...task,
         id: Date.now()
