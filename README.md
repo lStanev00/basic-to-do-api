@@ -1,5 +1,35 @@
 That's a basic RESTfull API on express written in TypeScript for a todo List
 
+## Requirements to run
+
+ - Enviroment : Node.js v24.1.0
+ - command prompt/bash/shell
+  
+## How to run
+
+### Pull the repository
+
+```bash
+git clone https://github.com/lStanev00/basic-to-do-api
+```
+
+### Install deps & dev deps (npm)
+
+```bash 
+npm install
+```
+
+### Start the API 
+
+```bash
+npm run start
+```
+### For outdated versions of Node.js try installing the lastest one or:
+
+```bash 
+npm run outdated-start
+```
+
 ## Endpoints
 
 ### GET /items
