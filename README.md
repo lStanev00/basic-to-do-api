@@ -34,7 +34,7 @@ npm run outdated-start
 
 ### GET /items
 
-Will return you all in memory items from the todo list in the an ARRAY of
+Will return you all in memory items from the todo list in an ARRAY of
 
 Objects with structure :
 
