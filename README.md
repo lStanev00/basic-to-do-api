@@ -1,4 +1,5 @@
 That's a basic RESTfull API on express written in TypeScript for a todo List
+Intro video here => https://www.youtube.com/watch?v=qmuqrHM8Hmo
 
 ## Requirements to run
 
