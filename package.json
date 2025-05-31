@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.ts",
-    "dev": "node --watch index.ts"
+    "dev": "node --watch index.ts",
+    "outdated-start": "npx ts-node index.ts"
   },
   "repository": {
     "type": "git",
