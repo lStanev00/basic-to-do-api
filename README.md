@@ -30,4 +30,4 @@ in such JSON format:
 }
 ```
 
-the ```json "finished": true ``` is optional if you dont provide anythink it sets it to false by default.
+the ```"finished": true``` is optional if you dont provide anythink it sets it to false by default.
