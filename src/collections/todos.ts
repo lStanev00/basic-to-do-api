@@ -1,5 +1,5 @@
 import generateItem from "../helpers/generateItem.ts";
-import { Item, Task } from "../types/types.ts"
+import type { Item, Task } from "../types/types.ts"
 
 const todos: Item[] = [];
 
