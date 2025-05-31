@@ -1,7 +1,10 @@
 import type { Request, Response } from "express";
+import todos from "../collections/todos.ts";
+
+const todoList = todos;
 
 export async function getItems(req: Request, res: Response): Promise<void> {
-    res.send(`Items`);
+    res.status(200).json(todoList);
     
 }
 
