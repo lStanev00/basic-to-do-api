@@ -1,8 +1,8 @@
 import type { Task, Item } from "../types/types";
 
-export default function generateItem(task: Task): Item {
+export default function generateItem(task: Task, todos: Item[]): Item {
     return {
         ...task,
-        id: Date.now()
+        id: Date.now() + todos.length
     };
 }
