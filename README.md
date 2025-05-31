@@ -47,7 +47,7 @@ Objects with structure :
 }
 ```
 
-### POST item
+### POST /item
 
 On this route you can post a new TODO task
 in such JSON format:
