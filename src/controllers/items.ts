@@ -1,5 +1,7 @@
 import type { Request, Response } from "express";
 import todos from "../collections/todos.ts";
+import type { Task, Item } from "../types/types.ts";
+import generateItem from "../helpers/generateItem.ts";
 
 const todoList = todos;
 
@@ -8,7 +10,24 @@ export async function getItems(req: Request, res: Response): Promise<void> {
     
 }
 
-export async function postItem(req: Request, res: Response): Promise<void> {
-    res.send(`Item`);
+export async function postItem(req: Request, res: Response): Promise<any> {
+
+    if (!req?.body?.name || !req?.body?.task) return res.status(400).json(`Bad input body`);
+    let finished: boolean = false;
+
+    if(req.body.finished == true) {
+        finished = true
+    }
+
+    const newTask: Task = {
+        name: req?.body?.name,
+        task: req?.body?.task,
+        finished: finished
+    }
+
+    const newItem: Item = generateItem(newTask, todoList);
+    todoList.push(newItem);
+
+    res.status(201).json(newItem);
 }
 
