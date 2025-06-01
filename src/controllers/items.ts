@@ -41,6 +41,15 @@ export async function changeFinish(req: Request, res: Response): Promise<any> {
     return res.status(200).json(todoList[index]);
 }
 
+export async function updateItem(req: Request, res: Response): Promise<any> {
+    const targetId = req?.body?.id
+    if (!targetId) return res.status(400).json(`Bad input body`);
+    const index = todoList.findIndex(item => item.id === targetId);
+    if(index == -1) return res.status(404).end();
+    todoList[index] = req.body
+    return res.status(200).json(todoList[index]);
+}
+
 export async function deleteItem(req: Request, res: Response): Promise<any> {
     const targetId = req?.body?.id
     if (!targetId) return res.status(400).json(`Bad input body`);
