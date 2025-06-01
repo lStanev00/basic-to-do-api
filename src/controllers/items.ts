@@ -39,7 +39,7 @@ export async function changeFinish(req: Request, res: Response): Promise<any> {
     const index = todoList.findIndex(item => item.id === targetId);
     if(index == -1) return res.status(404).end();
     const updatedItem = todoList[index].finished = !(todoList[index].finished);
-    return res.status(204).json(updatedItem);
+    return res.status(200).json(updatedItem);
 }
 
 export async function deleteItem(req: Request, res: Response): Promise<any> {
