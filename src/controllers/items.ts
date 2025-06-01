@@ -33,7 +33,6 @@ export async function postItem(req: Request, res: Response): Promise<any> {
 
 
 export async function changeFinish(req: Request, res: Response): Promise<any> {
-    console.log(req.body)
     const targetId = req?.body?.id
     if (!targetId) return res.status(400).json(`Bad input body`);
     const index = todoList.findIndex(item => item.id === targetId);
