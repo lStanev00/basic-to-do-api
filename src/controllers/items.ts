@@ -33,13 +33,13 @@ export async function postItem(req: Request, res: Response): Promise<any> {
 
 
 export async function changeFinish(req: Request, res: Response): Promise<any> {
-
+    console.log(req.body)
     const targetId = req?.body?.id
     if (!targetId) return res.status(400).json(`Bad input body`);
     const index = todoList.findIndex(item => item.id === targetId);
     if(index == -1) return res.status(404).end();
     const updatedItem = todoList[index].finished = !(todoList[index].finished);
-    return res.status(200).json(updatedItem);
+    return res.status(200).json(todoList[index]);
 }
 
 export async function deleteItem(req: Request, res: Response): Promise<any> {
