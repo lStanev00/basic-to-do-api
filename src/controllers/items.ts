@@ -56,6 +56,6 @@ export async function deleteItem(req: Request, res: Response): Promise<any> {
     const index = todoList.findIndex(item => item.id === targetId);
     if(index == -1) return res.status(404).end();
     const deleted = todoList.splice(index, 1);
-    return res.status(204).json(todoList);
+    return res.status(200).json(todoList);
 
 }
