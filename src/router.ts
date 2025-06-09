@@ -4,6 +4,7 @@ import { changeFinish, deleteItem, getItems, postItem, updateItem } from "./cont
 const router = Router();
 
 router.get(`/items`, getItems);
+router.get(`/items/:id`, getItems);
 router.post(`/items`, postItem);
 router.patch(`/items`, changeFinish)
 router.put(`/items`, updateItem);

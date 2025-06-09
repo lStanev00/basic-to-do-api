@@ -10,6 +10,21 @@ export async function getItems(req: Request, res: Response): Promise<void> {
     
 }
 
+export async function getItem(req: Request, res: Response): Promise<void> {
+
+    const id: number = Number(req.params.id);
+
+    const item = todoList.find(item => item.id === id); 
+
+    if (!item) {
+        res.status(404).json({ message: "Item not found" });
+        return;
+    }
+
+    res.status(200).json(item);
+    
+}
+
 export async function postItem(req: Request, res: Response): Promise<any> {
 
     if (!req?.body?.name || !req?.body?.task) return res.status(400).json(`Bad input body`);
