@@ -82,6 +82,14 @@ export async function changeFinish(req: Request, res: Response): Promise<any> {
 
 export async function updateItem(req: Request, res: Response): Promise<any> {
 
+    
+    if (!req.body.name) {
+        return res.status(400).json(`Missing "name" field`);
+    }
+    if (!req.body.task) {
+        return res.status(400).json(`Missing "task" field`);
+    }
+
     try {
         const targetId = req?.body?.id
         if (!targetId) return res.status(400).json(`Bad input body`);
