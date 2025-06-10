@@ -1,21 +1,22 @@
-import type { Request, Response } from "express";
+import type { Request, Response, NextFunction } from "express";
 import todos from "../collections/todos.ts";
 import type { Task, Item } from "../interfaces/interfaces";
 import generateItem from "../helpers/generateItem.ts";
 
 const todoList = todos;
 
-export async function getItems(req: Request, res: Response): Promise<void> {
+export async function getItems(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
         res.status(200).json(todoList);
         
     } catch (error) {
-        res.status(500).send(`Generic Server Error!`);
+        next(error);
+
     }
     
 }
 
-export async function getItem(req: Request, res: Response): Promise<void> {
+export async function getItem(req: Request, res: Response, next: NextFunction): Promise<void> {
 
     try {
         const id: number = Number(req.params.id);
@@ -30,11 +31,12 @@ export async function getItem(req: Request, res: Response): Promise<void> {
         res.status(200).json(item);
         
     } catch (error) {
-        res.status(500).send(`Generic Server Error!`);
+        next(error);
+
     }
 }
 
-export async function postItem(req: Request, res: Response): Promise<any> {
+export async function postItem(req: Request, res: Response, next: NextFunction): Promise<any> {
 
     try {
         if (!req?.body?.name || !req?.body?.task) return res.status(400).json(`Bad input body`);
@@ -56,13 +58,14 @@ export async function postItem(req: Request, res: Response): Promise<any> {
         res.status(201).json(newItem);
         
     } catch (error) {
-        res.status(500).send(`Generic Server Error!`);
+        next(error);
+
     }
 
 }
 
 
-export async function changeFinish(req: Request, res: Response): Promise<any> {
+export async function changeFinish(req: Request, res: Response, next: NextFunction): Promise<any> {
 
     try {
         const targetId = req?.body?.id
@@ -75,12 +78,13 @@ export async function changeFinish(req: Request, res: Response): Promise<any> {
         return res.status(200).json(todoList[index]);
         
     } catch (error) {
-        res.status(500).send(`Generic Server Error!`);
+        next(error);
+
         
     }
 }
 
-export async function updateItem(req: Request, res: Response): Promise<any> {
+export async function updateItem(req: Request, res: Response, next: NextFunction): Promise<any> {
 
     
     if (!req.body.name) {
@@ -101,11 +105,12 @@ export async function updateItem(req: Request, res: Response): Promise<any> {
         return res.status(200).json(todoList[index]);
         
     } catch (error) {
-        
+        next(error);
+
     }
 }
 
-export async function deleteItem(req: Request, res: Response): Promise<any> {
+export async function deleteItem(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
         const targetId = req?.body?.id
         if (!targetId) return res.status(400).json(`Bad input body`);
@@ -117,7 +122,8 @@ export async function deleteItem(req: Request, res: Response): Promise<any> {
         return res.status(200).json(todoList);
         
     } catch (error) {
-        res.status(500).send(`Generic Server Error!`);
+        next(error);
+
     }
 
 }
