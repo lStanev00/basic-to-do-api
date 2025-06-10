@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { changeFinish, deleteItem, getItems, postItem, updateItem, getItem } from "./controllers/items.ts";
-import errorMiddleware from "./middlewares/error";
+import errorMiddleware from "./middlewares/error.ts";
 
 const router = Router();
 
